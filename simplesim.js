@@ -25,7 +25,7 @@ SOFTWARE.
 */
 
 
-function simpleSim3(needle, haystack, threshold = 0) {
+function simpleSim(needle, haystack, threshold = 0) {
   var score = 0.0;
   var offset = 0;
   const needleLength = needle.length;

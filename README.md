@@ -64,7 +64,7 @@ The total score is normalized by dividing by needleLength and returned.
 
 ### **Summary Table**
 
-| Feature                     | `simpleSim3`                     | Levenshtein Distance          | Jaro-Winkler                  | Longest Common Subsequence (LCS) |
+| Feature                     | simpleSim                     | Levenshtein Distance          | Jaro-Winkler                  | Longest Common Subsequence (LCS) |
 |-----------------------------|----------------------------------|-------------------------------|-------------------------------|----------------------------------|
 | **Order Preservation**       | Yes                              | No (edits can reorder)        | Yes (with transpositions)     | Yes                              |
 | **Proximity Sensitivity**    | Yes (rewards closer matches)     | No                            | No                            | No                               |

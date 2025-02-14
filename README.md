@@ -42,6 +42,26 @@ The total score is normalized by dividing by needleLength and returned.
 - Distance Sensitivity: Matches that are closer together contribute more to the score.
 - Threshold Check: Allows early termination if the threshold cannot be met, improving efficiency.
 
+## Comparison with other algorithms
+
+### Levenshstein
+
+- simpleSim3 focuses on matching characters in order and rewards matches that are closer together, while Levenshtein considers all possible edits.
+- simpleSim3 is more efficient for long strings because it can terminate early if the threshold is not met.
+- Levenshtein is more general-purpose, while simpleSim3 is tailored for specific use cases where order and proximity matter.
+
+### Jaro- Winkler
+
+- Both algorithms reward matches that are closer together, but simpleSim3 explicitly calculates a score based on the distance between matches.
+- Jaro-Winkler is better suited for short strings and names, while simpleSim3 can handle longer strings more efficiently.
+- simpleSim3 does not account for transpositions, whereas Jaro-Winkler does.
+
+### Longest Common Subsequence (LCS)
+
+- Both algorithms focus on matching characters in order, but simpleSim3 also considers the proximity of matches, rewarding closer matches with a higher score.
+- LCS only returns the length of the longest common subsequence, while simpleSim3 provides a normalized score that can be compared against a threshold.
+- simpleSim3 is more efficient for long strings due to its early termination mechanism.
+
 ## Notes
 
 simpleSim is asymetric, optimised to search a needle in a haystack. If you want to compare two strings to get their similarity, you should run the function both ways an take the average result.

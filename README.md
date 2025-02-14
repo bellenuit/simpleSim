@@ -1,0 +1,40 @@
+The function simpleSim provides a metric to approximately compare strings.
+
+Arguments:
+- needle
+- haystack
+- thresold = 0 (allows
+
+The function returns a value between 0 (nothing in common) and 1 (needle is completely contained in haystack and starts at the beginning.
+
+simpleSim can be used to replacde other string comparaison metrics (Levenshtein Distance, Jaro-Winkler, Longest Common Sequence LCS.
+
+The algorithm is straightforward, gives comparable results, is faster and has less complexity. While worst case is O(nm) the average complexity is O(n).
+
+See tests http://belle-nuit.com/site/files/similaritytest.html
+
+The algorithm can be described as following:
+
+The score is set to 0.
+
+The offset is set to 1.
+
+The position is set to 0.
+
+The first character of needle is compared to the characters in the haystack starting at offset,
+
+If a match is found, the position is set to the position of the character in the haystack.
+
+A search back starting from offset-2 to the beginning is executed.
+
+If a match is found and the position is nearer to offset, that position is retained.
+
+If position is found, the score is augmented by 1/(abs(position-offset) + 1), means 1 for continous text and less in other cases,
+
+If there is a threshold and it is clear that the threshold cannot be achieved, the procedure is stopped early.
+
+The procedure is repeated for each character in the needle,
+
+The result is the score divided by the length of the needle,
+
+2025-02 14 Matthias Bürcher

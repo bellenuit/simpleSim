@@ -15,19 +15,26 @@ The algorithm is straightforward, gives comparable results, is faster and has le
 
 See tests http://belle-nuit.com/site/files/similaritytest.html
 
-The algorithm can be described as following:
+## Algorithm
 
-- The score is set to 0.
-- The offset is set to 1.
-- The position is set to 0.
-- The first character of needle is compared to the characters in the haystack starting at offset,
-- If a match is found, the position is set to the position of the character in the haystack.
-- A search back starting from offset-2 to the beginning is executed.
-- If a match is found and the position is nearer to offset, that position is retained.
-- If position is found, the score is augmented by 1/(abs(position-offset) + 1), means 1 for continous text and less in other cases,
-- If there is a threshold and it is clear that the threshold cannot be achieved, the procedure is stopped early.
-- The procedure is repeated for each character in the needle.
-- The result is the score divided by the length of the needle.
+### Initial Checks:
+If either needle or haystack is empty, the function returns 0.0 immediately.
+
+### Character Matching:
+For each character in needle, the function searches for a match in haystack:
+- Forward Search: Starts from the current offset and searches forward in haystack for the character.
+- Backward Search: If a match is found, the function also searches backward from the offset to see if a closer match exists. This is done to improve the score by minimizing the distance between matched characters.
+
+### Score Calculation:
+If a match is found, the score is incremented by 1 / (distance + 1), where distance is the absolute difference between the match position and the current offset. This rewards matches that are closer together.
+
+The offset is updated to the position after the match to ensure characters are matched in order.
+
+### Early Termination:
+If the remaining possible score (current score + maximum possible score from remaining characters) is less than the scoreThreshold, the function returns 0 immediately, as the threshold cannot be met.
+
+### Final Score:
+The total score is normalized by dividing by needleLength and returned.
 
 simpleSim is asymetric, optimised to search a needle in a haystack. If you want to compare two strings to get their similarity, you should run the function both ways an take the average result.
 

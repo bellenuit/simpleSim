@@ -1,3 +1,5 @@
+# simpleSim
+
 The function simpleSim provides a metric to approximately compare strings.
 
 Arguments:
@@ -15,26 +17,20 @@ See tests http://belle-nuit.com/site/files/similaritytest.html
 
 The algorithm can be described as following:
 
-The score is set to 0.
+- The score is set to 0.
+- The offset is set to 1.
+- The position is set to 0.
+- The first character of needle is compared to the characters in the haystack starting at offset,
+- If a match is found, the position is set to the position of the character in the haystack.
+- A search back starting from offset-2 to the beginning is executed.
+- If a match is found and the position is nearer to offset, that position is retained.
+- If position is found, the score is augmented by 1/(abs(position-offset) + 1), means 1 for continous text and less in other cases,
+- If there is a threshold and it is clear that the threshold cannot be achieved, the procedure is stopped early.
+- The procedure is repeated for each character in the needle.
+- The result is the score divided by the length of the needle.
 
-The offset is set to 1.
+simpleSim is asymetric, optimised to search a needle in a haystack. If you want to compare two strings to get their similarity, you should run the function both ways an take the average result.
 
-The position is set to 0.
-
-The first character of needle is compared to the characters in the haystack starting at offset,
-
-If a match is found, the position is set to the position of the character in the haystack.
-
-A search back starting from offset-2 to the beginning is executed.
-
-If a match is found and the position is nearer to offset, that position is retained.
-
-If position is found, the score is augmented by 1/(abs(position-offset) + 1), means 1 for continous text and less in other cases,
-
-If there is a threshold and it is clear that the threshold cannot be achieved, the procedure is stopped early.
-
-The procedure is repeated for each character in the needle,
-
-The result is the score divided by the length of the needle,
+If you use the function in search context, you may want to preprocess the strings to get low case only and handle special characters. This is not part of this algorithmn.
 
 2025-02 14 Matthias Bürcher

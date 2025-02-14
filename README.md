@@ -46,21 +46,33 @@ The total score is normalized by dividing by needleLength and returned.
 
 ### Levenshstein
 
-- simpleSim3 focuses on matching characters in order and rewards matches that are closer together, while Levenshtein considers all possible edits.
-- simpleSim3 is more efficient for long strings because it can terminate early if the threshold is not met.
+- simpleSim focuses on matching characters in order and rewards matches that are closer together, while Levenshtein considers all possible edits.
+- simpleSim is more efficient for long strings because it can terminate early if the threshold is not met.
 - Levenshtein is more general-purpose, while simpleSim3 is tailored for specific use cases where order and proximity matter.
 
 ### Jaro- Winkler
 
 - Both algorithms reward matches that are closer together, but simpleSim3 explicitly calculates a score based on the distance between matches.
-- Jaro-Winkler is better suited for short strings and names, while simpleSim3 can handle longer strings more efficiently.
-- simpleSim3 does not account for transpositions, whereas Jaro-Winkler does.
+- Jaro-Winkler is better suited for short strings and names, while simpleSim can handle longer strings more efficiently.
+- simpleSim does not account for transpositions, whereas Jaro-Winkler does.
 
 ### Longest Common Subsequence (LCS)
 
 - Both algorithms focus on matching characters in order, but simpleSim3 also considers the proximity of matches, rewarding closer matches with a higher score.
-- LCS only returns the length of the longest common subsequence, while simpleSim3 provides a normalized score that can be compared against a threshold.
-- simpleSim3 is more efficient for long strings due to its early termination mechanism.
+- LCS only returns the length of the longest common subsequence, while simpleSim provides a normalized score that can be compared against a threshold.
+- simpleSim is more efficient for long strings due to its early termination mechanism.
+
+### **Summary Table**
+
+| Feature                     | `simpleSim3`                     | Levenshtein Distance          | Jaro-Winkler                  | Longest Common Subsequence (LCS) |
+|-----------------------------|----------------------------------|-------------------------------|-------------------------------|----------------------------------|
+| **Order Preservation**       | Yes                              | No (edits can reorder)        | Yes (with transpositions)     | Yes                              |
+| **Proximity Sensitivity**    | Yes (rewards closer matches)     | No                            | No                            | No                               |
+| **Transpositions**           | No                               | No                            | Yes                           | No                               |
+| **Threshold Support**        | Yes                              | No                            | No                            | No                               |
+| **Efficiency**               | High (early termination)         | Low (dynamic programming)     | Medium                        | Low (dynamic programming)        |
+| **Best Use Case**            | Long strings, ordered matches   | General-purpose, small edits  | Short strings, names          | Sequences with gaps              |
+
 
 ## Notes
 

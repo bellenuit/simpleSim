@@ -5,7 +5,7 @@ The algorithm simpleSim provides a metric to approximately compare strings.
 Arguments:
 - needle
 - haystack
-- thresold = 0 (allows early exit when it is clear, that the result will not be able to achieve the threshold value
+- threshold = 0 (allows early exit when it is clear, that the result will not be able to achieve the threshold value
 
 The function returns a value between 0 (nothing in common) and 1 (needle is completely contained in haystack and starts at the beginning.
 

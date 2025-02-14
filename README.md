@@ -97,4 +97,6 @@ If you use the function in search context, you may want to preprocess the string
 
 simpleSim is used in the project https://github.com/bellenuit/SLOOKUP
 
+DeepSeek was used for part of this documenation. https://belle-nuit.com/how-deepseek-explained-the-simplesim-algorithm-and-found-an-oddity-in-it
+
 2025-02 14 Matthias Bürcher

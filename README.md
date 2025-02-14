@@ -36,6 +36,14 @@ If the remaining possible score (current score + maximum possible score from rem
 ### Final Score:
 The total score is normalized by dividing by needleLength and returned.
 
+## Key Features
+
+- Order Preservation: The function ensures that characters in needle are matched in order within haystack.
+- Distance Sensitivity: Matches that are closer together contribute more to the score.
+- Threshold Check: Allows early termination if the threshold cannot be met, improving efficiency.
+
+## Notes
+
 simpleSim is asymetric, optimised to search a needle in a haystack. If you want to compare two strings to get their similarity, you should run the function both ways an take the average result.
 
 If you use the function in search context, you may want to preprocess the strings to get low case only and handle special characters. This is not part of this algorithmn.

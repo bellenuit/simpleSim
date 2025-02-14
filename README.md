@@ -77,7 +77,7 @@ The total score is normalized by dividing by needleLength and returned.
 
 | Algorithm            | Worst-Case Complexity | Average-Case Complexity       | Notes                                      |
 |----------------------|-----------------------|-------------------------------|--------------------------------------------|
-| **`simpleSim`**      | O(n × m)             | Often better than O(n × m)    | Early termination and proximity checks improve performance. |
+| **simpleSim**        | O(n × m)             | Often better than O(n × m)    | Early termination and proximity checks improve performance. |
 | **Levenshtein**      | O(n × m)             | O(n × m)                      | Early stopping optimizations can help, but matrix must still be filled. |
 | **Jaro-Winkler**     | O(n × m)             | O(n + m)                      | Matching window and linear processing improve performance. |
 | **LCS**              | O(n × m)             | O(n × m)                      | No significant average-case improvements.  |
@@ -88,10 +88,6 @@ simpleSim benefits significantly from early termination and proximity checks. Av
 Jaro-Winkler benefits from a limited matching window and linear processing. Average-case complexity is often **O(n + m)**.
 
 Levenshtein and LCS: Average-case complexity remains **O(n × m)** because they must process the entire dynamic programming matrix in most cases.. Optimizations like early stopping (for Levenshtein) can help in specific scenarios but do not change the overall complexity.
-
-- For **long strings**, simpleSim and Jaro-Winkler are more efficient on average due to their lower average-case complexity.
-- For **short strings**, all algorithms perform similarly, but Jaro-Winkler is particularly well-suited for names and words.
-- For **sequences with gaps**, LCS is the best choice, but its complexity remains high.
 
 ## Notes
 

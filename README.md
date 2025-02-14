@@ -48,17 +48,17 @@ The total score is normalized by dividing by needleLength and returned.
 
 - simpleSim focuses on matching characters in order and rewards matches that are closer together, while Levenshtein considers all possible edits.
 - simpleSim is more efficient for long strings because it can terminate early if the threshold is not met.
-- Levenshtein is more general-purpose, while simpleSim3 is tailored for specific use cases where order and proximity matter.
+- Levenshtein is more general-purpose, while simpleSim is tailored for specific use cases where order and proximity matter.
 
 ### Jaro- Winkler
 
-- Both algorithms reward matches that are closer together, but simpleSim3 explicitly calculates a score based on the distance between matches.
+- Both algorithms reward matches that are closer together, but simpleSim explicitly calculates a score based on the distance between matches.
 - Jaro-Winkler is better suited for short strings and names, while simpleSim can handle longer strings more efficiently.
 - simpleSim does not account for transpositions, whereas Jaro-Winkler does.
 
 ### Longest Common Subsequence (LCS)
 
-- Both algorithms focus on matching characters in order, but simpleSim3 also considers the proximity of matches, rewarding closer matches with a higher score.
+- Both algorithms focus on matching characters in order, but simpleSim also considers the proximity of matches, rewarding closer matches with a higher score.
 - LCS only returns the length of the longest common subsequence, while simpleSim provides a normalized score that can be compared against a threshold.
 - simpleSim is more efficient for long strings due to its early termination mechanism.
 

@@ -1,6 +1,6 @@
 # simpleSim
 
-The function simpleSim provides a metric to approximately compare strings.
+The algorithm simpleSim provides a metric to approximately compare strings.
 
 Arguments:
 - needle

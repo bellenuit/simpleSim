@@ -33,4 +33,6 @@ simpleSim is asymetric, optimised to search a needle in a haystack. If you want 
 
 If you use the function in search context, you may want to preprocess the strings to get low case only and handle special characters. This is not part of this algorithmn.
 
+simpleSim is used in the project https://github.com/bellenuit/SLOOKUP
+
 2025-02 14 Matthias Bürcher
